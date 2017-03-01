@@ -122,7 +122,7 @@ class Channel(object):
     
     @staticmethod
     def search(query, page=1, count=30, print_mode=1):
-        resp = lihkg.search(query=query, page=page, count=count)
+        resp = lihkg.requests.search(query=query, page=page, count=count)
         response = get_response(resp)
         return Channel(data=response, print_mode=print_mode)
     

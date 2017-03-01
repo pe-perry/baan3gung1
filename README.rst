@@ -12,17 +12,29 @@ How to install
 --------------
 
 Method 1:
+
 1. Run `pip install git+https://github.com/kitman0804/baan3gung1.git`
 
 Method 2:
+
 1. Download the repository.
+
 2. Run `python setup.py install` in the downloaded directory.
 
 
 Version
 -------
 
-Version 0.1.0:
+Version 0.1.1:
+
+Bug fixes.
+
+- Channel.search
+
+
+Version 0.1:
+
 Hello world.
+
 User can now read the threads and posts in lihkg.
 

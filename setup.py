@@ -10,7 +10,7 @@ def readme():
 
 setup(
     name='baan3gung1',
-    version='0.1',
+    version='0.1.1',
     description='\'Work\' hard and \'play\' hard.',
     long_description=readme(),
     keywords='baan3gung1 hea work',
