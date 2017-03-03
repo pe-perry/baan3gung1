@@ -2,37 +2,50 @@ baan3gung1
 ----------
 
 baan3gung1 (in Cantonese 扮工) means a worker pretend to work hard,
-but in fact he is not doing any work. This package is created for
-this purpose.
+but in fact he/she is not doing any work. This package is created
+for this purpose.
 
 1. LIHKG (one of the most popular forum in Hong Kong)
 
+Planning:
+
+- JobsDB (Job searching website)
 
 How to install
 --------------
 
-Method 1:
+First, you need Python 3.
 
-1. Run `pip install git+https://github.com/kitman0804/baan3gung1.git`
+**Method 1:**
 
-Method 2:
+1. Run
+
+```
+pip install git+https://github.com/kitman0804/baan3gung1.git
+```
+
+**Method 2:**
 
 1. Download the repository.
 
-2. Run `python setup.py install` in the downloaded directory.
+2. Run the following code in the downloaded directory.
 
+```
+python setup.py install
+```
 
 Version
 -------
 
-Version 0.1.1:
+**Version 0.1.2:**
 
-Bug fixes.
+Minor fixes.
 
-- Channel.search
+**Version 0.1.1:**
 
+Fixed Channel.search.
 
-Version 0.1:
+**Version 0.1:**
 
 Hello world.
 

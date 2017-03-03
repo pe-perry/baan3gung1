@@ -150,9 +150,11 @@ def print_separator(text='', width=80):
 
 # Class Post
 class Post(object):
-    def __init__(self, data=dict()):
+    def __init__(self, data=None):
         if isinstance(data, dict):
             self._data = data
+        elif data is None:
+            self._data = dict()
         else:
             raise TypeError('data must be a \'dict\' object.')
     
@@ -213,9 +215,11 @@ class Post(object):
 
 
 class ThreadPage(object):
-    def __init__(self, data=dict()):
+    def __init__(self, data=None):
         if isinstance(data, dict):
             self._data = data
+        elif data is None:
+            self._data = dict()
         else:
             raise TypeError('data must be a \'dict\' object.')
     
@@ -381,13 +385,4 @@ class Thread(object):
 
 
 __all__ = ['Post', 'ThreadPage', 'Thread']
-
-
-def main():
-    th = Thread.get_thread(1)
-    th.show_page(1)
-
-
-if __name__ == '__main__':
-    main()
 

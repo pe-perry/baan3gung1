@@ -10,7 +10,7 @@ def readme():
 
 setup(
     name='baan3gung1',
-    version='0.1.1',
+    version='0.1.2',
     description='\'Work\' hard and \'play\' hard.',
     long_description=readme(),
     keywords='baan3gung1 hea work',
@@ -20,7 +20,7 @@ setup(
     license='MIT',
     packages=[
         'baan3gung1',
-        'baan3gung1.lihkg'
+        'baan3gung1.lihkg',
     ],
     install_requires=[
         'requests',

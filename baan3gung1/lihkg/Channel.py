@@ -8,9 +8,11 @@ from .utils import change_type, get_response
 
 # Thread Topic
 class Topic(object):
-    def __init__(self, data=dict()):
+    def __init__(self, data=None):
         if isinstance(data, dict):
             self._data = data
+        elif data is None:
+            self._data = dict()
         else:
             raise TypeError('data must be a \'dict\' object.')
     
@@ -70,9 +72,11 @@ class Topic(object):
 
 # Channel
 class Channel(object):
-    def __init__(self, data=dict(), print_mode=1):
+    def __init__(self, data=None, print_mode=1):
         if isinstance(data, dict):
             self._data = data
+        elif data is None:
+            self._data = dict()
         else:
             raise TypeError('data must be a \'dict\' object.')
         self._print_mode = print_mode
@@ -155,13 +159,4 @@ class Channel(object):
 
 
 __all__ = ['Topic', 'Channel']
-
-
-def main():
-    ch = Channel.get_channel(2)
-    ch.show()
-
-
-if __name__ == "__main__":
-    main()
 

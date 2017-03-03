@@ -6,8 +6,13 @@ from .utils import change_type
 
 
 class User(object):
-    def __init__(self, data):
-        self._data = data
+    def __init__(self, data=None):
+        if isinstance(data, dict):
+            self._data = data
+        elif data is None:
+            self._data = dict()
+        else:
+            raise TypeError('data must be a \'dict\' object.')
     
     def __repr__(self):
         print_text = '<User {:} - {:}>'
