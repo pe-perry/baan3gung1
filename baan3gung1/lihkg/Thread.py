@@ -27,11 +27,11 @@ def remove_tag(soup, tag_name, keep_content=True, keep_text_only=False):
                 x.replace_with(x.text)
             else:
                 text = ''.join(str(c) for c in x.contents)
-                x.replace_with(BeautifulSoup(text, 'html.parser'))
+                x.replace_with(BeautifulSoup(text.encode(), 'html.parser'))
         else:
             x.replace_with('')
     if keep_content and not keep_text_only:
-        soup = BeautifulSoup(str(soup), parser_name)
+        soup = BeautifulSoup(str(soup).encode(), parser_name)
     return soup
 
 
@@ -121,7 +121,7 @@ def print_content(x, indentation='', quote_depth=None):
         src = x.attrs['src']
         if 'hkgmoji' in x.attrs.get('class', []):
             hkgmoji = re.sub('.*faces/(.*)\.[a-z]+$', '\\1', src)
-            print_text = '[{:}]'.format(hkgmoji)
+            print_text = '({:})'.format(hkgmoji)
             print(print_text, end=' ')
         else:
             print_text = '[img]({:})'.format(src)
@@ -180,7 +180,7 @@ class Post(object):
     def contents(self):
         doc = self.raw_contents
         doc = remove_escape_code(doc)
-        soup = BeautifulSoup(doc, 'lxml')
+        soup = BeautifulSoup(doc.encode(), 'lxml')
         soup = clean_style(soup)
         soup = soup.find('body')
         c = [x for x in soup.contents if str(x).strip() != '']

@@ -108,7 +108,8 @@ class Channel(object):
     @property
     def topics(self):
         items = self._data.get('items', list())
-        return [Topic(thd) for thd in items]
+        t = [Topic(thd) for thd in items]
+        return t
     
     @property
     def id(self):

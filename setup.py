@@ -4,13 +4,13 @@ from setuptools import setup
 
 
 def readme():
-    with open('README.rst') as f:
-        return f.read()
+    with open('README.md', 'rb') as f:
+        return f.read().decode()
 
 
 setup(
     name='baan3gung1',
-    version='0.1.2',
+    version='0.1.3',
     description='\'Work\' hard and \'play\' hard.',
     long_description=readme(),
     keywords='baan3gung1 hea work',
