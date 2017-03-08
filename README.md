@@ -1,6 +1,6 @@
 ## baan3gung1
 
-*Current version: 0.1.4*
+*Current version: 0.1.5*
 
 baan3gung1 (Cantonese: 扮工) means a worker pretends to work,
 but in fact he/she is not.
@@ -63,11 +63,17 @@ import baan3gung1
 from bann3gung1 import lihkg
 
 # Settings
+## Set headers
 baan3gung1.settings.HEADERS = {
     'User-Agent': 'baan3gung1zai2.'
 }
-baan3gung1.settings.TIMEOUT = (3.05, 60)  # connect: 3.05s; read: 60s
-baan3gung1.seetings.SLEEP_TIME = 5  # sleep 5s between requests
+
+## Set connect and read timeout (3.05s & 60s).
+baan3gung1.settings.TIMEOUT = (3.05, 60)
+
+## Set min. sleep time between requests (5s).
+baan3gung1.seetings.SLEEP_TIME = 5
+
 
 # Show all threads in the page 1 of Channel 2 (Hot).
 lihkg.Channel.get_channel(2).show()
@@ -82,6 +88,13 @@ lihkg.Thread.get_thread(1, time_interval=5).show()
 ---
 
 ## Version
+
+**Version 0.1.5**
+
+- Fixed settings bugs: Users' settings on `HEADERS`, `TIMEOUT` and
+`MIN_SLEEP_TIME` now take effect.
+- `baan3gung1.settings.SLEEP_TIME` has been renamed as
+`baan3gung1.settings.MIN_SLEEP_TIME`.
 
 **Version 0.1.4**
 

@@ -8,5 +8,5 @@ HEADERS = {
 
 TIMEOUT = (9.05, 60)
 
-SLEEP_TIME = 3
+MIN_SLEEP_TIME = 3
 

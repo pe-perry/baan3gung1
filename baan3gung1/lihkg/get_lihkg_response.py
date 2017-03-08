@@ -3,35 +3,9 @@
 import requests
 
 
-def change_type(x, func):
+def get_lihkg_response(resp):
     """
-    change_type(x, func)
-    
-    Change object type
-    
-    Parameters:
-    -----------
-    x: object
-        Object to be converted.
-    
-    func: function
-        Function for conversion.
-    
-    Return:
-    -------
-    func(x) or None if there are value or type error.
-    """
-    try:
-        return func(x)
-    except ValueError:
-        return None
-    except TypeError:
-        return None
-
-
-def get_response(resp):
-    """
-    get_response(resp)
+    get_lihkg_response(resp)
     
     Obtain the data of the response object.
     

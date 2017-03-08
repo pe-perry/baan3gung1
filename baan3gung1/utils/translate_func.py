@@ -36,20 +36,3 @@ def translate_to_half_width(*args):
     txt = translate_text(*args, table=FULL_TO_HALF)
     return txt
 
-
-# Print functions
-def print_full_width(*args, **kwargs):
-    txt = translate_to_full_width(*args)
-    if isinstance(txt, str):
-        print(txt, **kwargs)
-    else:
-        print(*txt, **kwargs)
-
-
-def print_half_width(*args, **kwargs):
-    txt = translate_to_half_width(*args)
-    if isinstance(txt, str):
-        print(txt, **kwargs)
-    else:
-        print(*txt, **kwargs)
-

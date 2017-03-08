@@ -2,7 +2,7 @@
 
 from datetime import datetime
 
-from .utils import change_type
+from ..utils import change_type
 
 
 class User(object):
@@ -45,7 +45,4 @@ class User(object):
     @property
     def status(self):
         return self._data.get('status')
-
-
-__all__ = ['User']
 

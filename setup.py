@@ -10,7 +10,7 @@ def readme():
 
 setup(
     name='baan3gung1',
-    version='0.1.4',
+    version='0.1.5',
     description='Get bored? Take a break!',
     long_description='Get bored? Take a break!',
     keywords='baan3gung1 hea work',
