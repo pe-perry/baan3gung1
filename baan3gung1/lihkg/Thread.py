@@ -340,21 +340,21 @@ class Thread(object):
         else:
             raise ValueError('Inconsistent \'thread_id\'.')
     
-    def get_all_pages(self, time_interval=SLEEP_TIME):
+    def get_all_pages(self, time_interval=3):
         self.get_first_page()
         for _ in range(self.no_of_reply // 25):
-            time.sleep(time_interval)
+            time.sleep(max(0, SLEEP_TIME, time_interval))
             self.get_next_page()
     
-    def refresh(self, time_interval=SLEEP_TIME):
+    def refresh(self, time_interval=3):
         self._pages = self._pages[:-1]
         self.get_next_page()
         for _ in range(self.no_of_reply // 25 - len(self._pages) + 1):
-            time.sleep(time_interval)
+            time.sleep(max(0, SLEEP_TIME, time_interval))
             self.get_next_page()
     
     @staticmethod
-    def get_thread(thread_id, time_interval=SLEEP_TIME):
+    def get_thread(thread_id, time_interval=3):
         th = Thread(thread_id=thread_id)
         th.get_all_pages(time_interval=time_interval)
         return th
@@ -385,5 +385,5 @@ class Thread(object):
                 print_separator('End.')
 
 
-__all__ = ['Post', 'ThreadPage', 'Thread']
+__all__ = ['Post', 'ThreadPage', 'Thread', 'SLEEP_TIME']
 
