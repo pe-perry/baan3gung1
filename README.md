@@ -60,7 +60,7 @@ python setup.py install
 
 ```
 import baan3gung1
-from bann3gung1 import lihkg
+from baan3gung1 import lihkg
 
 # Settings
 ## Set headers
@@ -72,7 +72,7 @@ baan3gung1.settings.HEADERS = {
 baan3gung1.settings.TIMEOUT = (3.05, 60)
 
 ## Set min. sleep time between requests (5s).
-baan3gung1.seetings.SLEEP_TIME = 5
+baan3gung1.settings.MIN_SLEEP_TIME = 5
 
 
 # Show all threads in the page 1 of Channel 2 (Hot).
@@ -81,7 +81,7 @@ lihkg.Channel.get_channel(2).show()
 # Search threads related to 'api'.
 lihkg.Channel.search('api', count=20).show()
 
-# Show all posts(/replies) in thread 1 (5 seconds/page).
+# Show all posts(/replies) in thread 1 (5s/page).
 lihkg.Thread.get_thread(1, time_interval=5).show()
 ```
 
