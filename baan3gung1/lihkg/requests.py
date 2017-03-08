@@ -2,15 +2,9 @@
 
 import requests
 
-TIMEOUT = (10, 60)
+from ..settings import HEADERS, TIMEOUT
 
 API_URL = 'https://lihkg.com/api_v1_1/'
-
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '
-                  'Chrome/56.0.2924.87 Safari/537.36',
-    'from': 'baan3gung1.lihkg'
-}
 
 CHANNELS = [
     {'id':  1, 'full_width_name': '吹水台', 'name': '吹水台'},
@@ -104,17 +98,19 @@ def get_category(cat_id=1, page=1, count=30):
 
 def get_channel(channel_id=1, page=1, count=30, type_='now'):
     if str(channel_id) == '2':
-        return get_hot(type_=type_)
+        response = get_hot(type_=type_)
     elif str(channel_id) == '3':
-        return get_news(page=page, count=count)
+        response = get_news(page=page, count=count)
     else:
-        return get_category(cat_id=channel_id, page=page, count=count)
+        response = get_category(cat_id=channel_id, page=page, count=count)
+    return response
 
 
-def get_thread(thread_id=0, page=1):
+def get_thread(thread_id=1, page=1):
     response = requests.get(
         url=API_URL + 'thread/' + str(thread_id) + '/page/' + str(page),
-        headers=HEADERS
+        headers=HEADERS,
+        timeout=TIMEOUT
     )
     return response
 
@@ -122,8 +118,9 @@ def get_thread(thread_id=0, page=1):
 def search(query, page=1, count=30):
     response = requests.get(
         url=API_URL + 'thread/search',
-        params={'q': query, 'page': page, 'count': count},
-        headers=HEADERS
+        params={'q': str(query), 'page': page, 'count': count},
+        headers=HEADERS,
+        timeout=TIMEOUT
     )
     return response
 

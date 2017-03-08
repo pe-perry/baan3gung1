@@ -8,7 +8,8 @@ from datetime import datetime
 import bs4
 from bs4 import BeautifulSoup
 
-from baan3gung1 import lihkg
+from .. import lihkg
+from ..settings import SLEEP_TIME
 from .User import User
 from .utils import change_type, get_response
 
@@ -339,13 +340,13 @@ class Thread(object):
         else:
             raise ValueError('Inconsistent \'thread_id\'.')
     
-    def get_all_pages(self, time_interval=0.25):
+    def get_all_pages(self, time_interval=SLEEP_TIME):
         self.get_first_page()
         for _ in range(self.no_of_reply // 25):
             time.sleep(time_interval)
             self.get_next_page()
     
-    def refresh(self, time_interval=0.25):
+    def refresh(self, time_interval=SLEEP_TIME):
         self._pages = self._pages[:-1]
         self.get_next_page()
         for _ in range(self.no_of_reply // 25 - len(self._pages) + 1):
@@ -353,7 +354,7 @@ class Thread(object):
             self.get_next_page()
     
     @staticmethod
-    def get_thread(thread_id, time_interval=0.25):
+    def get_thread(thread_id, time_interval=SLEEP_TIME):
         th = Thread(thread_id=thread_id)
         th.get_all_pages(time_interval=time_interval)
         return th

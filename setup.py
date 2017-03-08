@@ -10,9 +10,9 @@ def readme():
 
 setup(
     name='baan3gung1',
-    version='0.1.3',
-    description='\'Work\' hard and \'play\' hard.',
-    long_description=readme(),
+    version='0.1.4',
+    description='Get bored? Take a break!',
+    long_description='Get bored? Take a break!',
     keywords='baan3gung1 hea work',
     url='https://github.com/kitman0804/baan3gung1',
     author='kitman0804 @ https://github.com/kitman0804',
